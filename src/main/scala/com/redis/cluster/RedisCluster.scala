@@ -71,7 +71,7 @@ abstract class RedisCluster(hosts: String*) extends RedisClient {
   // instantiating a cluster will automatically connect participating nodes to the server
   val clients = hosts.toList.map {h => 
     val hp = h.split(":")
-    new RedisClientPool(hp(0), hp(1).toInt)
+    new RedisClientPool(hp(0), hp(1).toInt,0)
   }
 
   // the hash ring will instantiate with the nodes up and added
